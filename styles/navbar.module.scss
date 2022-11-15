@@ -1,0 +1,165 @@
+@import "./mixin.module.scss";
+@import "./partials.scss";
+
+.navbar {
+  margin-top: 15px;
+  .navbar_wrapper {
+    padding: 20px 20px 10px 10px;
+    @include horizontallysapce;
+  }
+
+  .NavbarLeft {
+    @include verticallycenter;
+
+    .handburgerMenu {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease-in-out;
+      margin-right: 20px;
+
+      .bar {
+        width: 25px;
+        height: 2px;
+        background-color: #333;
+        border-radius: 10px;
+        transition: 0.3s ease;
+      }
+
+      ::before,
+      ::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background-color: #333;
+        border-radius: 10px;
+        transition: 0.3s ease;
+      }
+      ::before {
+        transform: translateY(-7px);
+      }
+      ::after {
+        transform: translateY(7px);
+      }
+    }
+
+    .handburgerActive {
+      ::before {
+        transform: rotate();
+      }
+      ::after {
+        transform: translateY(7px);
+      }
+    }
+
+    /* Search Bar Start */
+    .search {
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      background-color: #eee;
+    }
+    .search > input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      padding: 5px;
+    }
+    .search > input::placeholder {
+      font-size: 12px;
+    }
+    .search > svg {
+      color: #555;
+      margin: 0px 10px;
+      font-size: 20px;
+    }
+    /* Search Bar End */
+  }
+
+  .NavbarRight {
+    @include verticallycenter;
+  }
+  .NavbarRight_items {
+    position: relative;
+    @include verticallycenter;
+    margin-right: 20px;
+  }
+  .icon {
+    font-size: 26px;
+    cursor: pointer;
+  }
+  .NavbarRight_items:nth-child(1) {
+    animation: updown 1s ease infinite;
+  }
+  @keyframes updown {
+    0% {
+      transform: translateY(-1px);
+    }
+    50% {
+      transform: translateY(1px);
+    }
+    100% {
+      transform: translateY(-1px);
+    }
+  }
+  .NavbarRight_items:nth-child(2) {
+    animation: leftright 1s ease infinite;
+    transition-delay: 1s;
+  }
+  @keyframes leftright {
+    0% {
+      transform: translateX(-1px);
+    }
+    50% {
+      transform: translateX(1px);
+    }
+    100% {
+      transform: translateX(-1px);
+    }
+  }
+  .Counter {
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 8px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: -10px;
+    cursor: pointer;
+  }
+  .menu {
+    position: absolute;
+    top: 40px;
+    z-index: 999;
+    background-color: $white;
+    padding: 12px;
+    left: -20px;
+
+    ul {
+      list-style: none;
+
+      li {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
